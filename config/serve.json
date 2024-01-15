@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://{tenantDomain}/SitePages/myPage.aspx",
+      "pageUrl": "https://50bx7m.sharepoint.com/sites/MyTestSite/Lists/New%20List%20for%20Test%20Site/AllItems.aspx",
       "customActions": {
         "fdb33942-c836-4aa8-b090-fbeb57aa3a46": {
           "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
@@ -16,7 +16,7 @@
       }
     },
     "helloWorld": {
-      "pageUrl": "https://{tenantDomain}/SitePages/myPage.aspx",
+      "pageUrl": "https://50bx7m.sharepoint.com/sites/MyTestSite/Lists/New%20List%20for%20Test%20Site/AllItems.aspx",
       "customActions": {
         "fdb33942-c836-4aa8-b090-fbeb57aa3a46": {
           "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
