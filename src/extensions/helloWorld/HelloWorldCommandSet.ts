@@ -18,6 +18,8 @@ export interface IHelloWorldCommandSetProperties {
   sampleTextTwo: string;
 }
 
+const isPalindrome = (val: string): boolean => val.split('').reverse().join('') === val.split('').join('');
+
 const LOG_SOURCE: string = 'HelloWorldCommandSet';
 
 export default class HelloWorldCommandSet extends BaseListViewCommandSet<IHelloWorldCommandSetProperties> {
@@ -34,17 +36,38 @@ export default class HelloWorldCommandSet extends BaseListViewCommandSet<IHelloW
     return Promise.resolve();
   }
 
+//   public onExecute(event: IListViewCommandSetExecuteEventParameters): void {
+//     switch (event.itemId) {
+//       case 'COMMAND_1':
+//         Dialog.alert(`${this.properties.sampleTextOne}`).catch((err) => {
+//           Log.info(LOG_SOURCE, err)
+//         });
+//         break;
+//       case 'COMMAND_2':
+//         Dialog.alert(`${this.properties.sampleTextTwo}`).catch(() => {
+//           /* handle error */
+//         });
+//         break;
+//       default:
+//         throw new Error('Unknown command');
+//     }
+//   }
+
   public onExecute(event: IListViewCommandSetExecuteEventParameters): void {
     switch (event.itemId) {
       case 'COMMAND_1':
-        Dialog.alert(`${this.properties.sampleTextOne}`).catch((err) => {
-          Log.info(LOG_SOURCE, err)
-        });
+        Dialog.alert(`Clicked ${this.properties.sampleTextOne}`).catch(() => {
+            //
+        })
         break;
       case 'COMMAND_2':
-        Dialog.alert(`${this.properties.sampleTextTwo}`).catch(() => {
-          /* handle error */
-        });
+        Dialog.prompt(`Some prompt`).then((value: string) => {
+          Dialog.alert(isPalindrome(value) ? 'Palindrome!' : 'Not a palindrome!').catch(() => {
+            //...
+          })
+        }).catch(() => {
+            //...
+        })
         break;
       default:
         throw new Error('Unknown command');
@@ -61,6 +84,8 @@ export default class HelloWorldCommandSet extends BaseListViewCommandSet<IHelloW
     }
 
     // TODO: Add your logic here
+
+    
 
     // You should call this.raiseOnChage() to update the command bar
     this.raiseOnChange();
